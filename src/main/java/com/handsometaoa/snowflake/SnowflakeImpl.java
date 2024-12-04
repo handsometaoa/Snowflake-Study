@@ -44,7 +44,7 @@ public class SnowflakeImpl implements IdGen {
             }
         }
 
-        // 这里为什么
+        // 这里为什么不是else-if, 是因为上一步处理了时间回溯问题，还要继续进行获取ID
         if (timeStamp == lastTimeStamp) {
             sequence = (sequence + 1) & sequenceMask;
             if (sequence == 0) {
